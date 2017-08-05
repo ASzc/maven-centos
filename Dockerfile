@@ -12,4 +12,8 @@ RUN curl -o mvn.tar.gz http://www.apache.org/dist/maven/maven-3/3.3.9/binaries/a
     mv /opt/apache-maven-3.3.9/ /opt/apache-maven && \
     mkdir /opt/apache-maven/conf/settings && \
     mv /opt/apache-maven/conf/settings.xml /opt/apache-maven/conf/settings && \
-    ln -s /opt/apache-maven/conf/settings/settings.xml /opt/apache-maven/conf/settings.xml
+    ln -s /opt/apache-maven/conf/settings/settings.xml /opt/apache-maven/conf/settings.xml && \
+    groupadd --gid 2000 maven && \
+    useradd --uid 2000 --gid 2000 maven
+
+USER 2000:2000
