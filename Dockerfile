@@ -6,6 +6,9 @@ RUN yum install -y java-1.8.0-openjdk-devel which && \
 
 ENV PATH="/opt/apache-maven/bin:${PATH}"
 
+ENTRYPOINT ["mvn", "-B"]
+CMD ["install"]
+
 RUN curl -o mvn.tar.gz http://www.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz && \
     tar -xf mvn.tar.gz -C /opt/ && \
     rm mvn.tar.gz && \
